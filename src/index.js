@@ -80,6 +80,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = parseInt(btn.parentElement['data-id'], 10);
       const likes = parseInt(btn.parentElement['data-likes'], 10)
       
+      let formData = {
+        id: id,
+        likes: likes
+      };
+      
+      let configObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      };
       fetch(`http://localhost:3000/toys/${id}`)
     })    
   }
